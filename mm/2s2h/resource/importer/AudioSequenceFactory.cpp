@@ -9,7 +9,9 @@
 #include <tinyxml2.h>
 
 namespace SOH {
-std::shared_ptr<Ship::IResource> ResourceFactoryBinaryAudioSequenceV2::ReadResource(std::shared_ptr<Ship::File> file, std::shared_ptr<Ship::ResourceInitData> initData) {
+std::shared_ptr<Ship::IResource>
+ResourceFactoryBinaryAudioSequenceV2::ReadResource(std::shared_ptr<Ship::File> file,
+                                                   std::shared_ptr<Ship::ResourceInitData> initData) {
     if (!FileHasValidFormatAndReader(file, initData)) {
         return nullptr;
     }
@@ -305,7 +307,9 @@ static void WriteStereoSingleSeq(Ship::BinaryWriter* writer, uint16_t delay, uin
     WriteLdlayer(writer, 1, rLayerOffset);
 }
 
-std::shared_ptr<Ship::IResource> ResourceFactoryXMLAudioSequenceV0::ReadResource(std::shared_ptr<Ship::File> file, std::shared_ptr<Ship::ResourceInitData> initData) {
+std::shared_ptr<Ship::IResource>
+ResourceFactoryXMLAudioSequenceV0::ReadResource(std::shared_ptr<Ship::File> file,
+                                                std::shared_ptr<Ship::ResourceInitData> initData) {
     if (!FileHasValidFormatAndReader(file, initData)) {
         return nullptr;
     }
@@ -313,7 +317,7 @@ std::shared_ptr<Ship::IResource> ResourceFactoryXMLAudioSequenceV0::ReadResource
     auto sequence = std::make_shared<AudioSequence>(file->InitData);
     auto child = std::get<std::shared_ptr<tinyxml2::XMLDocument>>(file->Reader)->FirstChildElement();
     unsigned int i = 0;
-    //std::shared_ptr<Ship::ResourceInitData> initData = std::make_shared<Ship::ResourceInitData>();
+    // std::shared_ptr<Ship::ResourceInitData> initData = std::make_shared<Ship::ResourceInitData>();
 
     sequence->sequence.medium =
         ResourceFactoryXMLSoundFontV0::MediumStrToInt(child->Attribute("Medium"), file->InitData->Path.c_str());

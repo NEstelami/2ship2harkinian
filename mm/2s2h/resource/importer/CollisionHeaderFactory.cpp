@@ -5,7 +5,8 @@
 
 namespace SOH {
 std::shared_ptr<Ship::IResource>
-ResourceFactoryBinaryCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File> file, std::shared_ptr<Ship::ResourceInitData> initData) {
+ResourceFactoryBinaryCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File> file,
+                                                     std::shared_ptr<Ship::ResourceInitData> initData) {
     if (!FileHasValidFormatAndReader(file, initData)) {
         return nullptr;
     }
@@ -124,7 +125,9 @@ ResourceFactoryBinaryCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File>
     return collisionHeader;
 }
 
-std::shared_ptr<Ship::IResource> ResourceFactoryXMLCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File> file, std::shared_ptr<Ship::ResourceInitData> initData) {
+std::shared_ptr<Ship::IResource>
+ResourceFactoryXMLCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File> file,
+                                                  std::shared_ptr<Ship::ResourceInitData> initData) {
     if (!FileHasValidFormatAndReader(file, initData)) {
         return nullptr;
     }
