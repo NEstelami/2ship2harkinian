@@ -11,7 +11,7 @@ ResourceFactoryBinaryKeyFrameSkel::ReadResource(std::shared_ptr<Ship::File> file
         return nullptr;
     }
 
-    auto skel = std::make_shared<KeyFrameSkel>(file->InitData);
+    auto skel = std::make_shared<KeyFrameSkel>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     skel->skelData.limbCount = reader->ReadUByte();
@@ -63,7 +63,7 @@ ResourceFactoryBinaryKeyFrameAnim::ReadResource(std::shared_ptr<Ship::File> file
         return nullptr;
     }
 
-    auto anim = std::make_shared<KeyFrameAnim>(file->InitData);
+    auto anim = std::make_shared<KeyFrameAnim>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     const KeyframeSkelType skelType = (KeyframeSkelType)reader->ReadUByte();

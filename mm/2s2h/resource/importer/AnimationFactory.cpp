@@ -12,7 +12,7 @@ ResourceFactoryBinaryAnimationV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto animation = std::make_shared<Animation>(file->InitData);
+    auto animation = std::make_shared<Animation>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     AnimationType animType = (AnimationType)reader->ReadUInt32();

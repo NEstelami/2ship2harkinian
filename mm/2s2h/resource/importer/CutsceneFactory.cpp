@@ -307,7 +307,7 @@ ResourceFactoryBinaryCutsceneV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto cutscene = std::make_shared<Cutscene>(file->InitData);
+    auto cutscene = std::make_shared<Cutscene>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     uint32_t numEntries = reader->ReadUInt32();

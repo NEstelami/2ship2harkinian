@@ -11,7 +11,7 @@ ResourceFactoryBinaryTextMMV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto text = std::make_shared<TextMM>(file->InitData);
+    auto text = std::make_shared<TextMM>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     const uint32_t msgCount = reader->ReadUInt32();
@@ -43,7 +43,7 @@ ResourceFactoryXMLTextMMV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto text = std::make_shared<TextMM>(file->InitData);
+    auto text = std::make_shared<TextMM>(initData);
     auto reader = std::get<std::shared_ptr<tinyxml2::XMLDocument>>(file->Reader)->FirstChildElement();
 
     auto child = reader->FirstChildElement();

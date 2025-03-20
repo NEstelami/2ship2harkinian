@@ -12,7 +12,7 @@ ResourceFactoryBinarySkeletonLimbV0::ReadResource(std::shared_ptr<Ship::File> fi
         return nullptr;
     }
 
-    auto skeletonLimb = std::make_shared<SkeletonLimb>(file->InitData);
+    auto skeletonLimb = std::make_shared<SkeletonLimb>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     skeletonLimb->limbType = (LimbType)reader->ReadInt8();
@@ -198,7 +198,7 @@ ResourceFactoryXMLSkeletonLimbV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto skelLimb = std::make_shared<SkeletonLimb>(file->InitData);
+    auto skelLimb = std::make_shared<SkeletonLimb>(initData);
     auto reader = std::get<std::shared_ptr<tinyxml2::XMLDocument>>(file->Reader)->FirstChildElement();
 
     std::string limbType = reader->Attribute("Type");

@@ -10,7 +10,7 @@ ResourceFactoryBinaryPathMMV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto path = std::make_shared<PathMM>(file->InitData);
+    auto path = std::make_shared<PathMM>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     path->numPaths = reader->ReadUInt32();

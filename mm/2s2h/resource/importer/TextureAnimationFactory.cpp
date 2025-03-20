@@ -13,7 +13,7 @@ ResourceFactoryBinaryTextureAnimationV0::ReadResource(std::shared_ptr<Ship::File
         return nullptr;
     }
 
-    auto tAnim = std::make_shared<TextureAnimation>(file->InitData);
+    auto tAnim = std::make_shared<TextureAnimation>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     const size_t numEntries = reader->ReadUInt32();

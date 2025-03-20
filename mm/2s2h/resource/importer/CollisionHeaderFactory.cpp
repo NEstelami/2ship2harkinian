@@ -11,7 +11,7 @@ ResourceFactoryBinaryCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File>
         return nullptr;
     }
 
-    auto collisionHeader = std::make_shared<CollisionHeader>(file->InitData);
+    auto collisionHeader = std::make_shared<CollisionHeader>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     collisionHeader->collisionHeaderData.minBounds.x = reader->ReadInt16();
@@ -132,7 +132,7 @@ ResourceFactoryXMLCollisionHeaderV0::ReadResource(std::shared_ptr<Ship::File> fi
         return nullptr;
     }
 
-    auto collisionHeader = std::make_shared<CollisionHeader>(file->InitData);
+    auto collisionHeader = std::make_shared<CollisionHeader>(initData);
 
     auto reader = std::get<std::shared_ptr<tinyxml2::XMLDocument>>(file->Reader)->FirstChildElement();
     auto child = reader->FirstChildElement();

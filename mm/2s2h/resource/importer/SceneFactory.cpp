@@ -113,7 +113,7 @@ ResourceFactoryBinarySceneV0::ReadResource(std::shared_ptr<Ship::File> file,
         return nullptr;
     }
 
-    auto scene = std::make_shared<Scene>(file->InitData);
+    auto scene = std::make_shared<Scene>(initData);
     auto reader = std::get<std::shared_ptr<Ship::BinaryReader>>(file->Reader);
 
     ParseSceneCommands(scene, reader);
