@@ -20,6 +20,8 @@
 const std::string customMessageTableID = "BaseGameOverrides";
 const std::string appShortName = "2ship";
 
+class ImFont;
+
 class OTRGlobals {
   public:
     static OTRGlobals* Instance;

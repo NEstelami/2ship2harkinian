@@ -2,6 +2,7 @@
 
 #include <libultraship/bridge.h>
 #include "2s2h/BenPort.h"
+#include "window/Window.h"
 #include <vector>
 #include <string>
 
